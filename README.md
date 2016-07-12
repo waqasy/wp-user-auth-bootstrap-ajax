@@ -7,8 +7,8 @@ NOTE: This is not meant to be distributed since it only suits to my use cases, h
 
 Registration form:
 
-![register](screenshots/register-form.png)
+![register](screenshots/register.png)
 
 Login form:
 
-![login](screenshots/login-form.png)
+![login](screenshots/login.png)
