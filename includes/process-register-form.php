@@ -9,7 +9,6 @@ function handle_form_register()
         return "something went wrong";
     }
 
-
     $username         = sanitize_text_field(trim($_POST['username']));
     $email            = sanitize_email(trim($_POST['email']));
     $password         = sanitize_text_field(trim($_POST['password']));
