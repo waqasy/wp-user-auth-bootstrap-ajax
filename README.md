@@ -11,4 +11,4 @@ Registration form:
 
 Login form:
 
-![login]((screenshots/login-form.png)
+![login](screenshots/login-form.png)
