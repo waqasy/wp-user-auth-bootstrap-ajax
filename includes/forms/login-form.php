@@ -7,7 +7,7 @@ function login_form()
     <?php session_start(); ?>
     <div class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
         <div class="panel panel-primary">
-             <div class="panel-heading">Register</div>
+             <div class="panel-heading">Login</div>
              <div class="panel-body additional-fields-panel">
 
                 <?php if( errorsHas("login-error") ): ?>
