@@ -21,14 +21,14 @@ function request_password_reset_form()
                     <div class="form-group">
                         <label for="email" class="col-md-4 control-label">Email:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="email" value="<?php old("email") ?>">
+                            <input type="text" class="form-control" name="user_login" value="<?php old("email") ?>">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">
-                                <i class="fa fa-btn fa-envelope"></i> Send Password Reset
+                                <i class="fa fa-btn fa-envelope"></i> Send Password Reset Link
                             </button>
                         </div>
                     </div>

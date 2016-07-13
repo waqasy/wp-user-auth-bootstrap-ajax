@@ -51,7 +51,7 @@ function login_form()
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-btn fa-sign-in"></i> Login
                             </button>
-                            <a class="btn btn-link" href="/coverager/passwordreset">Forgot Your Password?</a>
+                            <a class="btn btn-link" href="/coverager/lostpassword">Forgot Your Password?</a>
                         </div>
                     </div>
 

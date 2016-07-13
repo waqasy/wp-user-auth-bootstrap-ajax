@@ -15,3 +15,13 @@ function errorsHas($key)
         return true;
     }
 }
+
+function check_reset_link($key, $login)
+{
+    $user = check_password_reset_key($key, $login);
+    print_r($user);
+    if(is_wp_error($user))
+    {
+        echo "Reset link is invalid";
+    }
+}

@@ -16,16 +16,22 @@ You should have received a copy of the GNU General Public License */
 include(plugin_dir_path( __FILE__ ) . '/includes/forms/register.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/forms/login.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/forms/request-password-reset.php');
+include(plugin_dir_path( __FILE__ ) . '/includes/forms/password-reset.php');
+
 include(plugin_dir_path( __FILE__ ) . '/includes/process-register-form.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/process-login-form.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/process-request-password-reset-form.php');
+include(plugin_dir_path( __FILE__ ) . '/includes/process-password-reset-form.php');
+
 include(plugin_dir_path( __FILE__ ) . '/includes/functions.php');
 
 
 add_shortcode('register-form', 'register_form');
 add_shortcode('login-form', 'login_form');
 add_shortcode('request-password-reset-form', 'request_password_reset_form');
+add_shortcode('password-reset-form', 'password_reset_form');
 
 add_action('admin_post_nopriv_submit-register-form', 'handle_register_form');
 add_action('admin_post_nopriv_submit-login-form', 'handle_login_form');
-add_action('admin_post_nopriv_submit-request-password-reset-form', 'handle_request-password-reset-form');
+add_action('admin_post_nopriv_submit-request-password-reset-form', 'handle_request_password_reset_form');
+add_action('admin_post_nopriv_submit-password-reset-form', 'handle_password_reset_form');
