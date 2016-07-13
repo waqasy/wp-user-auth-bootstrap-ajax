@@ -5,6 +5,13 @@ function password_reset_form()
 
 
     <?php session_start(); ?>
+    <?php
+        //If user randomly accesses this link he would be redirected.
+        if( !($_REQUEST['action'] === "rp") )
+        {
+            return wp_redirect( '/coverager' );
+        }
+    ?>
 
     <div class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
         <div class="panel panel-primary">
@@ -17,12 +24,12 @@ function password_reset_form()
                     <input type="hidden" name="user_noncename" id="user_noncename" value="<?php echo wp_create_nonce( get_template_directory_uri( __FILE__ ) ) ?>" />
                     <input type='hidden' name='action' value='submit-password-reset-form' />
 
-                    <div class="<?php echo "form-group" . ( errorsHas("email") ? " has-error" : "" );  ?>">
+                    <div class="<?php echo "form-group" . ( errors_has("email") ? " has-error" : "" );  ?>">
                         <label for="email" class="col-md-4 control-label">Email:</label>
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="email" value="<?php old("email") ?>">
 
-                            <?php if( errorsHas("email") ): ?>
+                            <?php if( errors_has("email") ): ?>
                                 <span class="help-block">
                                     <strong><?php echo $_SESSION["errors"]["email"]; ?></strong>
                                 </span>
@@ -31,12 +38,12 @@ function password_reset_form()
                         </div>
                     </div>
 
-                    <div class="<?php echo "form-group" . ( errorsHas("password") ? " has-error" : "" );  ?>">
+                    <div class="<?php echo "form-group" . ( errors_has("password") ? " has-error" : "" );  ?>">
                         <label for="password" class="col-md-4 control-label">Password:</label>
                         <div class="col-md-6">
                             <input type="password" class="form-control" name="password">
 
-                            <?php if( errorsHas("password") ): ?>
+                            <?php if( errors_has("password") ): ?>
                                 <span class="help-block">
                                     <strong><?php echo $_SESSION["errors"]["password"]; ?></strong>
                                 </span>
@@ -45,12 +52,12 @@ function password_reset_form()
                         </div>
                     </div>
 
-                    <div class="<?php echo "form-group" . ( errorsHas("password_confirm") ? " has-error" : "" );  ?>">
+                    <div class="<?php echo "form-group" . ( errors_has("password_confirm") ? " has-error" : "" );  ?>">
                         <label for="password_confirm" class="col-md-4 control-label">Confirm Password:</label>
                         <div class="col-md-6">
                             <input type="password" class="form-control" name="password_confirm">
 
-                            <?php if( errorsHas("password_confirm") ): ?>
+                            <?php if( errors_has("password_confirm") ): ?>
                                 <span class="help-block">
                                     <strong><?php echo $_SESSION["errors"]["password_confirm"]; ?></strong>
                                 </span>
@@ -72,10 +79,12 @@ function password_reset_form()
         </div>
     </div>
     <?php
-        unset($_SESSION['errors']);
+        //unset($_SESSION['errors']);
         unset($_SESSION['email']);
     ?>
     <?php
     //returns current buffer contents and delete current output buffer
     return ob_get_clean();
 }
+
+?>

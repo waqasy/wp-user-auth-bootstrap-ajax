@@ -10,9 +10,9 @@ function login_form()
              <div class="panel-heading">Login</div>
              <div class="panel-body additional-fields-panel">
 
-                <?php if( errorsHas("login-error") ): ?>
+                <?php if( errors_has("login_error") ): ?>
                     <div class="alert alert-danger">
-                        <?php echo $_SESSION["errors"]["login-error"] ?>
+                        <?php echo $_SESSION["errors"]["login_error"] ?>
                     </div>
                 <?php endif; ?>
 
@@ -44,7 +44,6 @@ function login_form()
                             </div>
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">

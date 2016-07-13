@@ -1,4 +1,5 @@
 <?php
+session_start();
 //SHows old input incase of form failed to submit
 function old($field)
 {
@@ -8,9 +9,17 @@ function old($field)
     }
 }
 //Returns true if there is an error for the passed field.
-function errorsHas($key)
+function errors_has($key)
 {
     if( is_array($_SESSION['errors']) && array_key_exists($key, $_SESSION['errors']) )
+    {
+        return true;
+    }
+}
+
+function success_has($key)
+{
+    if( isset($_SESSION[$key]) )
     {
         return true;
     }
@@ -19,9 +28,10 @@ function errorsHas($key)
 function check_reset_link($key, $login)
 {
     $user = check_password_reset_key($key, $login);
-    print_r($user);
+    echo $user->user_email;
     if(is_wp_error($user))
     {
-        echo "Reset link is invalid";
+        $_SESSION['errors']['password_reset'] = "Reset link is invalid, you may request another one here.";
+        return wp_redirect( '/coverager/lostpassword' );
     }
 }

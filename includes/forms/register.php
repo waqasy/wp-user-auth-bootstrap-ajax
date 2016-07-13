@@ -14,12 +14,12 @@ function register_form()
                     <input type="hidden" name="user_noncename" id="user_noncename" value="<?php echo wp_create_nonce( get_template_directory_uri( __FILE__ ) ) ?>" />
                     <input type='hidden' name='action' value='submit-register-form' />
 
-                    <div class="<?php echo "form-group" . ( errorsHas("username") ? " has-error" : "" );  ?>">
+                    <div class="<?php echo "form-group" . ( errors_has("username") ? " has-error" : "" );  ?>">
                         <label for="username" class="col-md-4 control-label">Username:</label>
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="username" value="<?php old("username") ?>">
 
-                            <?php if( errorsHas("username") ): ?>
+                            <?php if( errors_has("username") ): ?>
                                 <span class="help-block">
                                     <strong><?php echo $_SESSION["errors"]["username"]; ?></strong>
                                 </span>
@@ -28,12 +28,12 @@ function register_form()
                         </div>
                     </div>
 
-                    <div class="<?php echo "form-group" . ( errorsHas("email") ? " has-error" : "" );  ?>">
+                    <div class="<?php echo "form-group" . ( errors_has("email") ? " has-error" : "" );  ?>">
                         <label for="email" class="col-md-4 control-label">Email:</label>
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="email" value="<?php old("email") ?>">
 
-                            <?php if( errorsHas("email") ): ?>
+                            <?php if( errors_has("email") ): ?>
                                 <span class="help-block">
                                     <strong><?php echo $_SESSION["errors"]["email"]; ?></strong>
                                 </span>
@@ -42,12 +42,12 @@ function register_form()
                         </div>
                     </div>
 
-                    <div class="<?php echo "form-group" . ( errorsHas("password") ? " has-error" : "" );  ?>">
+                    <div class="<?php echo "form-group" . ( errors_has("password") ? " has-error" : "" );  ?>">
                         <label for="password" class="col-md-4 control-label">Password:</label>
                         <div class="col-md-6">
                             <input type="password" class="form-control" name="password">
 
-                            <?php if( errorsHas("password") ): ?>
+                            <?php if( errors_has("password") ): ?>
                                 <span class="help-block">
                                     <strong><?php echo $_SESSION["errors"]["password"]; ?></strong>
                                 </span>
@@ -56,12 +56,12 @@ function register_form()
                         </div>
                     </div>
 
-                    <div class="<?php echo "form-group" . ( errorsHas("password_confirm") ? " has-error" : "" );  ?>">
+                    <div class="<?php echo "form-group" . ( errors_has("password_confirm") ? " has-error" : "" );  ?>">
                         <label for="password_confirm" class="col-md-4 control-label">Confirm Password:</label>
                         <div class="col-md-6">
                             <input type="password" class="form-control" name="password_confirm">
 
-                            <?php if( errorsHas("password_confirm") ): ?>
+                            <?php if( errors_has("password_confirm") ): ?>
                                 <span class="help-block">
                                     <strong><?php echo $_SESSION["errors"]["password_confirm"]; ?></strong>
                                 </span>

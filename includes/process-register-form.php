@@ -49,7 +49,7 @@ function handle_register_form()
         //so we can the user what went wrong and all also keep his old values filled in the form
         $_SESSION["username"] = $username;
         $_SESSION["email"] = $email;
-        return wp_redirect( '/coverager/register' );
+        return wp_redirect('/coverager/register');
     }
 
 
@@ -70,7 +70,7 @@ function handle_register_form()
     $user = wp_signon($creds, false);
     $username = $user->get('user_login');
     $_SESSION["success"] = "Welcome $username, you have registered successfully";
-    return wp_redirect( '/coverager/register' );
+    return wp_redirect('/coverager/register');
 
 } //end function
 

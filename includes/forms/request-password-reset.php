@@ -3,14 +3,21 @@
 function request_password_reset_form()
 {
     ob_start(); ?>
+    <?php session_start(); ?>
     <div class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
         <div class="panel panel-primary">
              <div class="panel-heading">Reset Password</div>
              <div class="panel-body additional-fields-panel">
 
-                <?php if( errorsHas("login-error") ): ?>
+                <?php if( success_has("reset_link_sent") ): ?>
                     <div class="alert alert-success">
-                        <?php echo $_SESSION["errors"]["pass-error"] ?>
+                        <?php echo $_SESSION["reset_link_sent"] ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if( errors_has("password_reset") ): ?>
+                    <div class="alert alert-danger">
+                        <?php echo $_SESSION["errors"]["password_reset"] ?>
                     </div>
                 <?php endif; ?>
 
@@ -21,7 +28,7 @@ function request_password_reset_form()
                     <div class="form-group">
                         <label for="email" class="col-md-4 control-label">Email:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="user_login" value="<?php old("email") ?>">
+                            <input type="text" class="form-control" name="email" value="<?php old("email") ?>">
                         </div>
                     </div>
 
@@ -38,8 +45,9 @@ function request_password_reset_form()
         </div>
     </div>
     <?php
-        unset($_SESSION['success']);
-        unset($_SESSION['errors']['password-reset']);
+        unset($_SESSION['reset_link_sent']);
+        unset($_SESSION['email']);
+        unset($_SESSION['errors']['password_reset']);
     ?>
     <?php
     return ob_get_clean();

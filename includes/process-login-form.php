@@ -24,7 +24,7 @@ function handle_login_form()
 
     if (is_wp_error($user))
     {
-        $_SESSION["errors"]["login-error"] = "Invalid username and password combination";
+        $_SESSION["errors"]["login_error"] = "Invalid username and password combination";
         return wp_redirect( '/coverager/login' );
     }
 
