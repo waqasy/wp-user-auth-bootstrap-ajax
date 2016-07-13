@@ -1,6 +1,6 @@
 <?php
 
-function handle_form_login()
+function handle_login_form()
 {
     session_start();
 
@@ -21,13 +21,14 @@ function handle_form_login()
 
     //If wp_signon fails it will return an error.
     $user = wp_signon($creds, false);
-    
+
     if (is_wp_error($user))
     {
         $_SESSION["errors"]["login-error"] = "Invalid username and password combination";
         return wp_redirect( '/coverager/login' );
     }
 
+    //On success
     return wp_redirect( '/coverager' );
 
 }

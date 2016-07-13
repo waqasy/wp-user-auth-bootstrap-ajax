@@ -1,10 +1,8 @@
 <?php
 function register_form()
 {
-    ob_start(); ?>
+ob_start(); ?>
 
-
-    <?php session_start(); ?>
     <div class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
         <div class="panel panel-primary">
              <div class="panel-heading">Register</div>
@@ -86,8 +84,7 @@ function register_form()
         unset($_SESSION['errors']);
         unset($_SESSION['username']);
         unset($_SESSION['email']);
+        unset($_SESSION['success']);
     ?>
-    <?php
-    //returns current buffer contents and delete current output buffer
-    return ob_get_clean();
+<?php ob_end_flush();
 }

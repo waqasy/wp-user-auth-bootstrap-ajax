@@ -18,7 +18,7 @@ function login_form()
 
                 <form action="<?php echo get_admin_url() ?>admin-post.php" class="form-horizontal" method="post">
                     <input type="hidden" name="user_noncename" id="user_noncename" value="<?php echo wp_create_nonce( get_template_directory_uri( __FILE__ ) ) ?>" />
-                    <input type='hidden' name='action' value='submit-form-login' />
+                    <input type='hidden' name='action' value='submit-login-form' />
 
                     <div class="form-group">
                         <label for="username" class="col-md-4 control-label">Username:</label>
@@ -51,7 +51,7 @@ function login_form()
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-btn fa-sign-in"></i> Login
                             </button>
-                            <a class="btn btn-link" href="#">Forgot Your Password?</a>
+                            <a class="btn btn-link" href="/coverager/passwordreset">Forgot Your Password?</a>
                         </div>
                     </div>
 

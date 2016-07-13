@@ -1,6 +1,6 @@
 <?php
 
-function handle_form_register()
+function handle_register_form()
 {
     session_start();
 
