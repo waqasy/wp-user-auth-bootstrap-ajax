@@ -8,9 +8,9 @@ function password_reset_form()
 
     <div class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
         <div class="panel panel-primary">
-             <div class="panel-heading">Reset Password</div>
-             <div class="panel-body additional-fields-panel">
-                 
+            <div class="panel-heading">Reset Password</div>
+            <div class="panel-body additional-fields-panel">
+
                 <?php check_reset_link($_REQUEST['key'], $_REQUEST['login']); ?>
 
                 <form action="<?php echo get_admin_url() ?>admin-post.php" class="form-horizontal" method="post">

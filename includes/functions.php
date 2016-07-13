@@ -7,7 +7,7 @@ function old($field)
         echo $_SESSION[$field];
     }
 }
-//Returns true is there is an error for the passed field.
+//Returns true if there is an error for the passed field.
 function errorsHas($key)
 {
     if( is_array($_SESSION['errors']) && array_key_exists($key, $_SESSION['errors']) )
