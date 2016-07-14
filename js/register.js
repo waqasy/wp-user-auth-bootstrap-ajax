@@ -3,7 +3,7 @@
         $('.register').on('click', function(event){
             event.preventDefault();
             //array of fields so we can easily hide errors in all of them
-            var fields = ["username", "email", "password", "password_confirm"]
+            var fields = ["username", "email", "password", "password_confirm"];
 
             var username         = $('#username').val();
             var email            = $('#email').val();

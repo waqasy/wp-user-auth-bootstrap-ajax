@@ -1,6 +1,5 @@
 <?php
 
-
 function login_user(WP_REST_Request $request)
 {
     $username = sanitize_text_field( trim( $request['username'] ) );

@@ -23,9 +23,12 @@ function user_auth_enqueue_scripts()
 {
     wp_enqueue_script( 'register-user-js', plugins_url( 'js/register.js', __FILE__ ), array( 'jquery' ), '', true );
     wp_localize_script( 'register-user-js', 'register_user_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
-    
+
     wp_enqueue_script( 'login-user-js', plugins_url( 'js/login.js', __FILE__ ), array( 'jquery' ), '', true );
     wp_localize_script( 'login-user-js', 'login_user_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+
+    wp_enqueue_script( 'reset-link-js', plugins_url( 'js/reset.js', __FILE__ ), array( 'jquery' ), '', true );
+    wp_localize_script( 'reset-link-js', 'reset_link_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
 }
 
 add_action( 'wp_enqueue_scripts', 'user_auth_enqueue_scripts' );
@@ -42,6 +45,7 @@ include(plugin_dir_path( __FILE__ ) . '/includes/process-password-reset-form.php
 
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-register.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-login.php');
+include(plugin_dir_path( __FILE__ ) . '/includes/api/process-reset.php');
 
 
 
@@ -66,6 +70,11 @@ function coverager_register_endpoints()
     register_rest_route('login-user/v1', '/user/', array(
         'methods' => 'POST',
         'callback' => 'login_user'
+    ));
+
+    register_rest_route('reset-link/v1', '/user/', array(
+        'methods' => 'POST',
+        'callback' => 'send_reset_link'
     ));
 }
 

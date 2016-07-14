@@ -6,7 +6,7 @@ function register_form()
     <div class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
         <div class="panel panel-primary">
              <div class="panel-heading">Register</div>
-             <div class="panel-body additional-fields-panel">
+             <div class="panel-body">
 
                 <form action="http://localhost:8888/coverager/wp-json/registering-user/v1/user" class="form-horizontal" method="post">
 

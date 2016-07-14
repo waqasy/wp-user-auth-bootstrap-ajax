@@ -7,14 +7,13 @@ function login_form()
     <div class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
         <div class="panel panel-primary">
             <div class="panel-heading">Login</div>
-            <div class="panel-body additional-fields-panel">
+            <div class="panel-body">
 
                 <div class="alert alert-danger login-error hidden">
                 </div>
 
                 <div class="alert alert-success login-success hidden">
                 </div>
-
 
                 <form action="http://localhost:8888/coverager/wp-json/login-user/v1/user" class="form-horizontal" method="post">
 
@@ -24,7 +23,6 @@ function login_form()
                             <input type="text" class="form-control" id="username" name="username">
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         <label for="password" class="col-md-4 control-label">Password:</label>
