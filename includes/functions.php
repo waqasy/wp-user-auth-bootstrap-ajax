@@ -28,10 +28,13 @@ function success_has($key)
 function check_reset_link($key, $login)
 {
     $user = check_password_reset_key($key, $login);
-    echo $user->user_email;
+    //echo $user->user_email;
     if(is_wp_error($user))
     {
-        $_SESSION['errors']['password_reset'] = "Reset link is invalid, you may request another one here.";
-        return wp_redirect( '/coverager/lostpassword' );
+        return;
+        //echo "Reset link is invalid, you may request another one <a href='/coverager/lostpassword'>here</a>.";
+        //return;
+        // $_SESSION['errors']['password_reset'] = "Reset link is invalid, you may request another one here.";
+        // return wp_redirect( '/coverager/lostpassword' );
     }
 }

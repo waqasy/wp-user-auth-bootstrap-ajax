@@ -22,6 +22,7 @@
             }).fail(function(data){
                 var response = JSON.parse(data.responseText);
                 var error    = response.message;
+                $(".reset-link-success").addClass("hidden");
                 $(".reset-link-error").removeClass("hidden");
                 $(".reset-link-error").text(error);
                 console.log("errors are: ", error);

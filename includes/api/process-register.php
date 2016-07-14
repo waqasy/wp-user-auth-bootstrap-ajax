@@ -50,17 +50,24 @@ function register_user(WP_REST_Request $request)
         'user_pass'  =>  $password
     );
 
-    wp_insert_user($userdata);
+    $user_id = wp_insert_user($userdata);
+    //IF we get an error here that means we have a problem in our app.
+    if( is_wp_error( $user_id ) )
+    {
+        $error = "Sorry, registration failed due to an unxpected error. We are working on fixing it as soon as possible.";
+        return new WP_Error( 'server_error', $error );
+    }
 
     $creds = array(
         'user_login'    => $username,
         'user_password' => $password,
         'remember'      => false
     );
-
     $user = wp_signon($creds, false);
+
     $username = $user->get('user_login');
 
     return "Welcome $username, you have registered successfully";
+
 
 }
