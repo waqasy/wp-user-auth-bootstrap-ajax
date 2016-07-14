@@ -3,10 +3,25 @@
 
 function register_user(WP_REST_Request $request)
 {
-    $error = [ "email" => "Valid email is required", "password" => "Password must be at least 6 characters" ];
+    $error = [];
     return new WP_Error( 'registration_errors', $error );
     return $request->get_params();
-    $username = $request['username'];
-    return $username;
-    //print_r($request);
+
+    $username         = sanitize_text_field( trim( $request['username'] ) );
+    $email            = sanitize_email( trim( $request['email'] ) );
+    $password         = trim( $request['password'] );
+    $password_confirm = trim( $request['password_confirm'] );
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

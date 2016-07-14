@@ -37,7 +37,7 @@ function register_form()
                     <div class="form-group password">
                         <label for="password" class="col-md-4 control-label">Password:</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" name="password">
+                            <input type="password" class="form-control" id="password" name="password">
 
                             <span class="help-block password-error hidden">
                                 <strong class="password-error-text"></strong>
@@ -49,7 +49,7 @@ function register_form()
                     <div class="form-group password_confirm">
                         <label for="password_confirm" class="col-md-4 control-label">Confirm Password:</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" name="password_confirm">
+                            <input type="password" class="form-control" id="password_confirm" name="password_confirm">
 
                             <span class="help-block password_confirm-error hidden">
                                 <strong class="password_confirm-error-text"></strong>
