@@ -23,6 +23,9 @@ function user_auth_enqueue_scripts()
 {
     wp_enqueue_script( 'register-user-js', plugins_url( 'js/register.js', __FILE__ ), array( 'jquery' ), '', true );
     wp_localize_script( 'register-user-js', 'register_user_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+    
+    wp_enqueue_script( 'login-user-js', plugins_url( 'js/login.js', __FILE__ ), array( 'jquery' ), '', true );
+    wp_localize_script( 'login-user-js', 'login_user_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
 }
 
 add_action( 'wp_enqueue_scripts', 'user_auth_enqueue_scripts' );
@@ -38,6 +41,8 @@ include(plugin_dir_path( __FILE__ ) . '/includes/process-request-password-reset-
 include(plugin_dir_path( __FILE__ ) . '/includes/process-password-reset-form.php');
 
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-register.php');
+include(plugin_dir_path( __FILE__ ) . '/includes/api/process-login.php');
+
 
 
 include(plugin_dir_path( __FILE__ ) . '/includes/functions.php');
@@ -48,11 +53,6 @@ add_shortcode('login-form', 'login_form');
 add_shortcode('request-password-reset-form', 'request_password_reset_form');
 add_shortcode('password-reset-form', 'password_reset_form');
 
-add_action('admin_post_nopriv_submit-register-form', 'handle_register_form');
-add_action('admin_post_nopriv_submit-login-form', 'handle_login_form');
-add_action('admin_post_nopriv_submit-request-password-reset-form', 'handle_request_password_reset_form');
-add_action('admin_post_nopriv_submit-password-reset-form', 'handle_password_reset_form');
-
 
 // wp-json/registering-user/v1/user
 
@@ -62,6 +62,20 @@ function coverager_register_endpoints()
         'methods' => 'POST',
         'callback' => 'register_user'
     ));
+
+    register_rest_route('login-user/v1', '/user/', array(
+        'methods' => 'POST',
+        'callback' => 'login_user'
+    ));
 }
 
 add_action('rest_api_init', 'coverager_register_endpoints');
+
+
+
+
+
+add_action('admin_post_nopriv_submit-register-form', 'handle_register_form');
+add_action('admin_post_nopriv_submit-login-form', 'handle_login_form');
+add_action('admin_post_nopriv_submit-request-password-reset-form', 'handle_request_password_reset_form');
+add_action('admin_post_nopriv_submit-password-reset-form', 'handle_password_reset_form');

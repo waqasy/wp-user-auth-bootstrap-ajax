@@ -44,12 +44,23 @@ function register_user(WP_REST_Request $request)
         return new WP_Error( 'registration_errors', $errors );
     }
 
+    $userdata = array(
+        'user_login' =>  $username,
+        'user_email' =>  $email,
+        'user_pass'  =>  $password
+    );
 
+    wp_insert_user($userdata);
 
+    $creds = array(
+        'user_login'    => $username,
+        'user_password' => $password,
+        'remember'      => false
+    );
 
+    $user = wp_signon($creds, false);
+    $username = $user->get('user_login');
 
-
-
-
+    return "Welcome $username, you have registered successfully";
 
 }

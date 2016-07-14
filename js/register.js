@@ -23,8 +23,10 @@
                     password_confirm: password_confirm
                 }
             }).done(function(data){
-                conole.log("data is: ", data);
+                console.log("data is: ", data);
+                location.reload();
             }).fail(function(data){
+                //We want to reset all error
                 fields.map(function(field){
                     hide_errors(field);
                 });

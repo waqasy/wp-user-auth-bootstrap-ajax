@@ -1,7 +1,7 @@
 <?php
 function register_form()
 {
-    ob_start(); ?>
+    ?>
 
     <div class="col-md-8 col-md-offset-2" style="margin-top: 50px;">
         <div class="panel panel-primary">
@@ -25,7 +25,7 @@ function register_form()
                     <div class="form-group email">
                         <label for="email" class="col-md-4 control-label">Email:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="email" name="email" value="<?php old("email") ?>">
+                            <input type="text" class="form-control" id="email" name="email">
 
                             <span class="help-block email-error hidden">
                                 <strong class="email-error-text"></strong>
@@ -72,6 +72,5 @@ function register_form()
     </div>
 
     <?php
-    //returns current buffer contents and delete current output buffer
-    return ob_get_clean();
+
 }
