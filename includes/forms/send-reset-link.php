@@ -1,6 +1,6 @@
 <?php
 
-function uab_request_password_reset_form()
+function uab_send_reset_link_form()
 {
     ?>
 

@@ -46,14 +46,9 @@ include(plugin_dir_path( __FILE__ ) . '/includes/api/process-login.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-send-reset-link.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-reset-password.php');
 
-
-
-include(plugin_dir_path( __FILE__ ) . '/includes/functions.php');
-
-
 add_shortcode('register-form', 'uab_register_form');
 add_shortcode('login-form', 'uab_login_form');
-add_shortcode('request-password-reset-form', 'uab_request_password_reset_form');
+add_shortcode('send-reset-link-form', 'uab_send_reset_link_form');
 add_shortcode('password-reset-form', 'uab_password_reset_form');
 
 

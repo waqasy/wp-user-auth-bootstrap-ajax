@@ -1,14 +1,33 @@
 # wp-user-auth-bootstrap
-Personal Plugin for allowing users to register into your WordPress site. Still in the work.
+Plugin for allowing users to register into your WordPress site via AJAX using the rest-api. Still in the work.
 
-Currently I have shortcodes for registration and login forms. [register-form], [login-form].
+# NOTE:
+This is not meant to be distributed since it only suits to specific use cases. It doesn't offer an options page to add or remove fields. This is geared toward developers who want to use it as a starting point and add their own code on top of it.
 
-NOTE: This is not meant to be distributed since it only suits to my use cases, however you can use it at your own risk if you wish to. It assumes you're using bootstrap and font-awesome, of course you can add your own design.  
+This plugin uses bootstrap and font-awesome for styling and icons.
 
-Registration form:
+# Shortcodes:
+1. [register-form]
+2. [login-form]
+3. [send-reset-link-form]
+4. [password-reset-form]
+
+#Security
+If you use this plugin you use it at your own risk, however I tried to use the best practices and I relied on WordPress functions whenever I could. Codebase is very small so you can go over the includes/api folder and take a look how I process all requests. It's mostly form validation and the rest is WordPress helper functions. I don't deal with SQL queries directly so there shouldn't be any problems. If you do find one, please let me know so I can fix it.
+
+# Screenshots
+[register-form]
 
 ![register](screenshots/register.png)
 
-Login form:
+[login-form]
 
 ![login](screenshots/login.png)
+
+[send-reset-link-form]
+
+![reset-link](screenshots/reset-link.png)
+
+[password-reset-form]
+
+![reset-password](screenshots/reset-password.png)
