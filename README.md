@@ -4,7 +4,7 @@ Plugin for allowing users to register into your WordPress site via AJAX using th
 # NOTE:
 This is not meant to be distributed since it only suits to specific use cases. It doesn't offer an options page to add or remove fields. This is geared toward developers who want to use it as a starting point and add their own code on top of it.
 
-This plugin uses bootstrap and font-awesome for styling and icons.
+This plugin uses bootstrap and font-awesome for styling and icons. Laravel inspired :)
 
 # Shortcodes:
 1. [register-form]
