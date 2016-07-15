@@ -51,10 +51,10 @@ include(plugin_dir_path( __FILE__ ) . '/includes/api/process-reset-password.php'
 include(plugin_dir_path( __FILE__ ) . '/includes/functions.php');
 
 
-add_shortcode('register-form', 'register_form');
-add_shortcode('login-form', 'login_form');
-add_shortcode('request-password-reset-form', 'request_password_reset_form');
-add_shortcode('password-reset-form', 'password_reset_form');
+add_shortcode('register-form', 'uab_register_form');
+add_shortcode('login-form', 'uab_login_form');
+add_shortcode('request-password-reset-form', 'uab_request_password_reset_form');
+add_shortcode('password-reset-form', 'uab_password_reset_form');
 
 
 // wp-json/registering-user/v1/user
@@ -63,17 +63,17 @@ function coverager_register_endpoints()
 {
     register_rest_route('registering-user/v1', '/user/', array(
         'methods' => 'POST',
-        'callback' => 'register_user'
+        'callback' => 'uab_register_user'
     ));
 
     register_rest_route('login-user/v1', '/user/', array(
         'methods' => 'POST',
-        'callback' => 'login_user'
+        'callback' => 'uab_login_user'
     ));
 
     register_rest_route('reset-link/v1', '/user/', array(
         'methods' => 'POST',
-        'callback' => 'send_reset_link'
+        'callback' => 'uab_send_reset_link'
     ));
 
     register_rest_route('reset-password/v1', '/user/', array(

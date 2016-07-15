@@ -1,6 +1,6 @@
 <?php
 
-function login_form()
+function uab_login_form()
 {
     ?>
 
@@ -20,14 +20,14 @@ function login_form()
                     <div class="form-group">
                         <label for="username" class="col-md-4 control-label">Username:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="username" name="username">
+                            <input type="text" class="form-control" id="username-login" name="username">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="password" class="col-md-4 control-label">Password:</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" id="password" name="password">
+                            <input type="password" class="form-control" id="password-login" name="password">
                         </div>
                     </div>
 

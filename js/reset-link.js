@@ -3,7 +3,7 @@
         $('.send-reset-link').on('click', function(event){
             event.preventDefault();
 
-            var email = $('#email').val();
+            var email = $('#email-reset-link').val();
 
             $.ajax({
                 url: 'http://localhost:8888/coverager/wp-json/reset-link/v1/user',

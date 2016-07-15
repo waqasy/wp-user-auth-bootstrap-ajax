@@ -3,8 +3,8 @@
         $('.login').on('click', function(event){
             event.preventDefault();
 
-            var username = $('#username').val();
-            var password = $('#password').val();
+            var username = $('#username-login').val();
+            var password = $('#password-login').val();
             var remember = $('#remember').is(':checked');
 
             $.ajax({

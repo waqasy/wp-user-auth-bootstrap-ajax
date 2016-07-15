@@ -1,10 +1,8 @@
 <?php
 
 
-function register_user(WP_REST_Request $request)
+function uab_register_user(WP_REST_Request $request)
 {
-
-
     //return $request->get_params();
 
     $username         = sanitize_text_field( trim( $request['username'] ) );
@@ -14,32 +12,32 @@ function register_user(WP_REST_Request $request)
 
     $errors = [];
 
-    if(username_exists($username))
+    if( username_exists( $username ) )
     {
         $errors["username"] = "Username exists already";
     }
-    if(strlen($username) < 3)
+    if( strlen( $username ) < 3 )
     {
         $errors["username"] = "Username must be at least 3 characters";
     }
-    if(email_exists($email))
+    if( email_exists( $email ) )
     {
         $errors["email"] = "Email exists already";
     }
-    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL))
+    if ( !$email || !filter_var( $email, FILTER_VALIDATE_EMAIL ) )
     {
         $errors["email"] = "Valid Email is required";
     }
-    if($password !== $password_confirm)
+    if( $password !== $password_confirm )
     {
         $errors["password_confirm"] = "Password confirmation don't match";
     }
-    if(strlen($password) < 6)
+    if( strlen($password) < 6 )
     {
         $errors["password"] = "Password must be at least 6 characters";
     }
 
-    if(count($errors) > 0)
+    if( count($errors) > 0 )
     {
         return new WP_Error( 'registration_errors', $errors );
     }
@@ -50,7 +48,7 @@ function register_user(WP_REST_Request $request)
         'user_pass'  =>  $password
     );
 
-    $user_id = wp_insert_user($userdata);
+    $user_id = wp_insert_user( $userdata );
     //IF we get an error here that means we have a problem in our app.
     if( is_wp_error( $user_id ) )
     {
@@ -63,9 +61,9 @@ function register_user(WP_REST_Request $request)
         'user_password' => $password,
         'remember'      => false
     );
-    $user = wp_signon($creds, false);
+    $user = wp_signon( $creds, false );
 
-    $username = $user->get('user_login');
+    $username = $user->get( 'user_login' );
 
     return "Welcome $username, you have registered successfully";
 

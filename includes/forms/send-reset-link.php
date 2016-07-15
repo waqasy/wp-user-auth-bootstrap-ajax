@@ -1,6 +1,6 @@
 <?php
 
-function request_password_reset_form()
+function uab_request_password_reset_form()
 {
     ?>
 
@@ -20,7 +20,7 @@ function request_password_reset_form()
                     <div class="form-group">
                         <label for="email" class="col-md-4 control-label">Email:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="email" name="email">
+                            <input type="text" class="form-control" id="email-reset-link" name="email">
                         </div>
                     </div>
 

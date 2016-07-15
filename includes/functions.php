@@ -38,3 +38,6 @@ function check_reset_link($key, $login)
         // return wp_redirect( '/coverager/lostpassword' );
     }
 }
+
+// <?php check_reset_link($_REQUEST['key'], $_REQUEST['login']);
+// <?php session_start(); 

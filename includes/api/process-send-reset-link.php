@@ -1,17 +1,17 @@
 <?php
-
-function send_reset_link(WP_REST_Request $request)
+//Takes care of sending the reset password link to the user's email
+function uab_send_reset_link(WP_REST_Request $request)
 {
     $email = trim( $request['email'] );
 
-    if ( empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL) )
+    if ( empty( $email ) || !filter_var( $email, FILTER_VALIDATE_EMAIL ) )
     {
         $error = "Valid Email is required.";
         return new WP_Error( 'reset_link_error', $error );
     }
 
     $user_data = get_user_by( 'email', $email );
-    if( empty($user_data) )
+    if( empty( $user_data ) )
     {
         $error = "There is no user registered with that email address.";
         return new WP_Error( 'reset_link_error', $error );
@@ -22,7 +22,7 @@ function send_reset_link(WP_REST_Request $request)
     $user_email = $user_data->user_email;
     $key = get_password_reset_key( $user_data );
 
-    if ( is_wp_error($key) ) {
+    if ( is_wp_error( $key ) ) {
         $error = "Something went wrong, please try again or contact support.";
         return new WP_Error( 'server_error', $error );
     }

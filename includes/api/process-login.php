@@ -1,6 +1,6 @@
 <?php
 
-function login_user(WP_REST_Request $request)
+function uab_login_user(WP_REST_Request $request)
 {
     $username = sanitize_text_field( trim( $request['username'] ) );
     $password = trim( $request['password'] );
@@ -13,9 +13,9 @@ function login_user(WP_REST_Request $request)
     );
 
     //If wp_signon fails it will return an error.
-    $user = wp_signon($creds, false);
+    $user = wp_signon( $creds, false );
 
-    if (is_wp_error($user))
+    if ( is_wp_error( $user ) )
     {
         $error = "Invalid username and password combination";
         return new WP_Error( 'login_error', $error );

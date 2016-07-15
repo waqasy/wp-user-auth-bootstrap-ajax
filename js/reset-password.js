@@ -4,12 +4,12 @@
             event.preventDefault();
             //array of fields so we can easily hide errors in all of them
             var fields = ["email", "password", "password_confirm"];
-
+            //key and login are hidden input fields which will be used to validate the reset link
             var key              = $('#key').val();
             var login            = $('#login').val();
-            var email            = $('#email').val();
-            var password         = $('#password').val();
-            var password_confirm = $('#password_confirm').val();
+            var email            = $('#email-reset-password').val();
+            var password         = $('#password-reset-password').val();
+            var password_confirm = $('#password_confirm-reset-password').val();
 
             $.ajax({
                 url: 'http://localhost:8888/coverager/wp-json/reset-password/v1/user',
@@ -51,15 +51,15 @@
         });
 
         function show_errors(field, error_message) {
-            $('.'+field).addClass('has-error');
-            $('.'+field+'-error').removeClass('hidden');
-            $('.'+field+'-error-text').html(error_message);
+            $('.'+field+'-reset-password').addClass('has-error');
+            $('.'+field+'-reset-password-error').removeClass('hidden');
+            $('.'+field+'-reset-password-error-text').html(error_message);
         }
 
         function hide_errors(field) {
-            $('.'+field).removeClass('has-error');
-            $('.'+field+'-error').addClass('hidden');
-            $('.'+field+'-error-text').text('');
+            $('.'+field+'-reset-password').removeClass('has-error');
+            $('.'+field+'-reset-password-error').addClass('hidden');
+            $('.'+field+'-reset-password-error-text').text('');
         }
     });
 })(jQuery);

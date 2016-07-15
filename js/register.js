@@ -5,10 +5,10 @@
             //array of fields so we can easily hide errors in all of them
             var fields = ["username", "email", "password", "password_confirm"];
 
-            var username         = $('#username').val();
-            var email            = $('#email').val();
-            var password         = $('#password').val();
-            var password_confirm = $('#password_confirm').val();
+            var username         = $('#username-registration').val();
+            var email            = $('#email-registration').val();
+            var password         = $('#password-registration').val();
+            var password_confirm = $('#password_confirm-registration').val();
 
             $.ajax({
                 url: 'http://localhost:8888/coverager/wp-json/registering-user/v1/user',
@@ -24,14 +24,21 @@
                 }
             }).done(function(data){
                 console.log("data is: ", data);
-                location.reload();
             }).fail(function(data){
-                //We want to reset all error
+                //We want to reset all errors in exchange of possible new ones
                 fields.map(function(field){
                     hide_errors(field);
                 });
+                $(".registration-server-error").addClass("hidden");
+
                 var response = JSON.parse(data.responseText);
-                var errors   = response.message;
+                //This will run incase of an unexpected error.
+                if(response.code === 'server_error') {
+                    $(".registration-server-error").removeClass("hidden");
+                    $(".registration-server-error").text(response.message);
+                };
+                //We assign the errors object and loop over it to show the errors.
+                var errors = response.message;
                 for (error in errors) {
                     show_errors(error, errors[error]);
                 }
@@ -40,15 +47,15 @@
         });
 
         function show_errors(field, error_message) {
-            $('.'+field).addClass('has-error');
-            $('.'+field+'-error').removeClass('hidden');
-            $('.'+field+'-error-text').text(error_message);
+            $('.'+field+'-registration').addClass('has-error');
+            $('.'+field+'-registration-error').removeClass('hidden');
+            $('.'+field+'-registration-error-text').text(error_message);
         }
 
         function hide_errors(field) {
-            $('.'+field).removeClass('has-error');
-            $('.'+field+'-error').addClass('hidden');
-            $('.'+field+'-error-text').text('');
+            $('.'+field+'-registration').removeClass('has-error');
+            $('.'+field+'-registration-error').addClass('hidden');
+            $('.'+field+'-registration-error-text').text('');
         }
     });
 })(jQuery);

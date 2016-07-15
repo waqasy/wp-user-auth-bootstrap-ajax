@@ -1,10 +1,8 @@
 <?php
-function password_reset_form()
+function uab_password_reset_form()
 {
-    ob_start(); ?>
+    ?>
 
-
-    <?php session_start(); ?>
     <?php
         //If user randomly accesses this link he would be redirected.
         if( !($_REQUEST['action'] === "rp") )
@@ -18,8 +16,6 @@ function password_reset_form()
             <div class="panel-heading">Reset Password</div>
             <div class="panel-body">
 
-                <?php check_reset_link($_REQUEST['key'], $_REQUEST['login']); ?>
-
                 <div class="alert alert-danger reset-password-error hidden">
                 </div>
 
@@ -30,37 +26,37 @@ function password_reset_form()
                     <input type="hidden" name="login" id="login" value="<?php echo $_REQUEST['login'] ?>">
                     <input type="hidden" name="key" id="key" value="<?php echo $_REQUEST['key'] ?>">
 
-                    <div class="form-group email">
+                    <div class="form-group email-reset-password">
                         <label for="email" class="col-md-4 control-label">Email:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="email" id="email">
+                            <input type="text" class="form-control" name="email" id="email-reset-password">
 
-                            <span class="help-block email-error hidden">
-                                <strong class="email-error-text"></strong>
+                            <span class="help-block email-reset-password-error hidden">
+                                <strong class="email-reset-password-error-text"></strong>
                             </span>
 
                         </div>
                     </div>
 
-                    <div class="form-group password">
+                    <div class="form-group password-reset-password">
                         <label for="password" class="col-md-4 control-label">Password:</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" id="password" name="password">
+                            <input type="password" class="form-control" id="password-reset-password" name="password">
 
-                            <span class="help-block password-error hidden">
-                                <strong class="password-error-text"></strong>
+                            <span class="help-block password-reset-password-error hidden">
+                                <strong class="password-reset-password-error-text"></strong>
                             </span>
 
                         </div>
                     </div>
 
-                    <div class="form-group password_confirm">
+                    <div class="form-group password_confirm-reset-password">
                         <label for="password_confirm" class="col-md-4 control-label">Confirm Password:</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" id="password_confirm" name="password_confirm">
+                            <input type="password" class="form-control" id="password_confirm-reset-password" name="password_confirm">
 
-                            <span class="help-block password_confirm-error hidden">
-                                <strong class="password_confirm-error-text"></strong>
+                            <span class="help-block password_confirm-reset-password-error hidden">
+                                <strong class="password_confirm-reset-password-error-text"></strong>
                             </span>
 
                         </div>
@@ -81,7 +77,7 @@ function password_reset_form()
 
     <?php
     //returns current buffer contents and delete current output buffer
-    return ob_get_clean();
+
 }
 
 ?>
