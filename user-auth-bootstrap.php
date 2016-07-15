@@ -22,16 +22,16 @@ register_activation_hook( __FILE__, 'user_auth_bootstrap_activate' );
 function user_auth_enqueue_scripts()
 {
     wp_enqueue_script( 'register-user-js', plugins_url( 'js/register.js', __FILE__ ), array( 'jquery' ), '', true );
-    wp_localize_script( 'register-user-js', 'register_user_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+    wp_localize_script( 'register-user-js', 'register_user_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ), 'site_url' => network_site_url( '/' ) ) );
 
     wp_enqueue_script( 'login-user-js', plugins_url( 'js/login.js', __FILE__ ), array( 'jquery' ), '', true );
-    wp_localize_script( 'login-user-js', 'login_user_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+    wp_localize_script( 'login-user-js', 'login_user_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ), 'site_url' => network_site_url( '/' ) ) );
 
     wp_enqueue_script( 'reset-link-js', plugins_url( 'js/reset-link.js', __FILE__ ), array( 'jquery' ), '', true );
-    wp_localize_script( 'reset-link-js', 'reset_link_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+    wp_localize_script( 'reset-link-js', 'reset_link_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ), 'site_url' => network_site_url( '/' ) ) );
 
     wp_enqueue_script( 'reset-password-js', plugins_url( 'js/reset-password.js', __FILE__ ), array( 'jquery' ), '', true );
-    wp_localize_script( 'reset-password-js', 'reset_password_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
+    wp_localize_script( 'reset-password-js', 'reset_password_data', array( 'nonce' => wp_create_nonce( 'wp_rest' ), 'site_url' => network_site_url( '/' ) ) );
 }
 
 add_action( 'wp_enqueue_scripts', 'user_auth_enqueue_scripts' );

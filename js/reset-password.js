@@ -12,7 +12,7 @@
             var password_confirm = $('#password_confirm-reset-password').val();
 
             $.ajax({
-                url: 'http://localhost:8888/coverager/wp-json/reset-password/v1/user',
+                url: reset_password_data.site_url + 'wp-json/reset-password/v1/user',
                 method: 'POST',
                 beforeSend: function(xhr) {
                     xhr.setRequestHeader( 'X-WP-Nonce', reset_password_data.nonce );

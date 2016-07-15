@@ -22,7 +22,7 @@ function uab_password_reset_form()
                 <div class="alert alert-success reset-password-success hidden">
                 </div>
 
-                <form action="http://localhost:8888/coverager/wp-json/reset-password/v1/user" class="form-horizontal" method="post">
+                <form class="form-horizontal" method="post">
                     <input type="hidden" name="login" id="login" value="<?php echo $_REQUEST['login'] ?>">
                     <input type="hidden" name="key" id="key" value="<?php echo $_REQUEST['key'] ?>">
 

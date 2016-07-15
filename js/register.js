@@ -11,7 +11,7 @@
             var password_confirm = $('#password_confirm-registration').val();
 
             $.ajax({
-                url: 'http://localhost:8888/coverager/wp-json/registering-user/v1/user',
+                url: register_user_data.site_url + 'wp-json/registering-user/v1/user',
                 method: 'POST',
                 beforeSend: function(xhr) {
                     xhr.setRequestHeader( 'X-WP-Nonce', register_user_data.nonce );

@@ -8,7 +8,7 @@
             var remember = $('#remember').is(':checked');
 
             $.ajax({
-                url: 'http://localhost:8888/coverager/wp-json/login-user/v1/user',
+                url: login_user_data.site_url + 'wp-json/login-user/v1/user',
                 method: 'POST',
                 beforeSend: function(xhr) {
                     xhr.setRequestHeader( 'X-WP-Nonce', login_user_data.nonce );

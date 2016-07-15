@@ -15,7 +15,7 @@ function uab_request_password_reset_form()
                 <div class="alert alert-danger reset-link-error hidden">
                 </div>
 
-                <form action="http://localhost:8888/coverager/wp-json/reset-link/v1/user" class="form-horizontal" method="post">
+                <form class="form-horizontal" method="post">
 
                     <div class="form-group">
                         <label for="email" class="col-md-4 control-label">Email:</label>

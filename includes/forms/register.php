@@ -11,7 +11,7 @@ function uab_register_form()
                 <div class="alert alert-danger registration-server-error hidden">
                 </div>
 
-                <form action="http://localhost:8888/coverager/wp-json/registering-user/v1/user" class="form-horizontal" method="post">
+                <form class="form-horizontal" method="post">
 
                     <div class="form-group username-registration">
                         <label for="username" class="col-md-4 control-label">Username:</label>
