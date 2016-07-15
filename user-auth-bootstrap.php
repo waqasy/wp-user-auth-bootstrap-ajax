@@ -52,8 +52,6 @@ add_shortcode('send-reset-link-form', 'uab_send_reset_link_form');
 add_shortcode('password-reset-form', 'uab_password_reset_form');
 
 
-// wp-json/registering-user/v1/user
-
 function coverager_register_endpoints()
 {
     register_rest_route('registering-user/v1', '/user/', array(
