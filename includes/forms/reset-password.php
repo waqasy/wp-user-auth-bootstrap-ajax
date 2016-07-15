@@ -7,7 +7,7 @@ function uab_password_reset_form()
         //If user randomly accesses this link he would be redirected.
         if( !($_REQUEST['action'] === "rp") )
         {
-            return wp_redirect( '/coverager' );
+            return wp_redirect( network_site_url( '/' ) );
         }
     ?>
 

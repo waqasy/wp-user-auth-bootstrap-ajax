@@ -32,12 +32,12 @@ function uab_register_user(WP_REST_Request $request)
     {
         $errors["password_confirm"] = "Password confirmation don't match";
     }
-    if( strlen($password) < 6 )
+    if( strlen( $password ) < 6 )
     {
         $errors["password"] = "Password must be at least 6 characters";
     }
 
-    if( count($errors) > 0 )
+    if( count( $errors ) > 0 )
     {
         return new WP_Error( 'registration_errors', $errors );
     }
