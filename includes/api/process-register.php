@@ -39,7 +39,7 @@ function uab_register_user(WP_REST_Request $request)
 
     if( count( $errors ) > 0 )
     {
-        return new WP_Error( 'registration_errors', $errors );
+        return new WP_Error( 'registration_errors', $errors, array( 'status' => 422 ) );
     }
 
     $userdata = array(

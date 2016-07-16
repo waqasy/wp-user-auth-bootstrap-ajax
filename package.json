@@ -1,0 +1,23 @@
+{
+  "name": "user-auth-bootstrap",
+  "version": "1.0.0",
+  "description": "Used for JS minification",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itzikbenh/wp-user-auth-bootstrap.git"
+  },
+  "author": "Isaac Ben Hutta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itzikbenh/wp-user-auth-bootstrap/issues"
+  },
+  "homepage": "https://github.com/itzikbenh/wp-user-auth-bootstrap#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0"
+  }
+}

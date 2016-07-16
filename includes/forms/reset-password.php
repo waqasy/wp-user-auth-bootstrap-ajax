@@ -23,8 +23,6 @@ function uab_password_reset_form()
                 </div>
 
                 <form class="form-horizontal" method="post">
-                    <input type="hidden" name="login" id="login" value="<?php echo $_REQUEST['login'] ?>">
-                    <input type="hidden" name="key" id="key" value="<?php echo $_REQUEST['key'] ?>">
 
                     <div class="form-group email-reset-password">
                         <label for="email" class="col-md-4 control-label">Email:</label>

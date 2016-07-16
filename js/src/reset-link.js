@@ -6,10 +6,10 @@
             var email = $('#email-reset-link').val();
 
             $.ajax({
-                url: reset_link_data.site_url + 'wp-json/reset-link/v1/user',
+                url: uab_data.site_url + 'wp-json/reset-link/v1/user',
                 method: 'POST',
                 beforeSend: function(xhr) {
-                    xhr.setRequestHeader( 'X-WP-Nonce', reset_link_data.nonce );
+                    xhr.setRequestHeader( 'X-WP-Nonce', uab_data.nonce );
                 },
                 data: {
                     email: email,

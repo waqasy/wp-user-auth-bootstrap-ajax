@@ -5,17 +5,17 @@
             //array of fields so we can easily hide errors in all of them
             var fields = ["email", "password", "password_confirm"];
             //key and login are hidden input fields which will be used to validate the reset link
-            var key              = $('#key').val();
-            var login            = $('#login').val();
+            var key              = uab_data.key
+            var login            = uab_data.login
             var email            = $('#email-reset-password').val();
             var password         = $('#password-reset-password').val();
             var password_confirm = $('#password_confirm-reset-password').val();
 
             $.ajax({
-                url: reset_password_data.site_url + 'wp-json/reset-password/v1/user',
+                url: uab_data.site_url + 'wp-json/reset-password/v1/user',
                 method: 'POST',
                 beforeSend: function(xhr) {
-                    xhr.setRequestHeader( 'X-WP-Nonce', reset_password_data.nonce );
+                    xhr.setRequestHeader( 'X-WP-Nonce', uab_data.nonce );
                 },
                 data: {
                     key: key,

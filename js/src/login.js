@@ -8,10 +8,10 @@
             var remember = $('#remember').is(':checked');
 
             $.ajax({
-                url: login_user_data.site_url + 'wp-json/login-user/v1/user',
+                url: uab_data.site_url + 'wp-json/login-user/v1/user',
                 method: 'POST',
                 beforeSend: function(xhr) {
-                    xhr.setRequestHeader( 'X-WP-Nonce', login_user_data.nonce );
+                    xhr.setRequestHeader( 'X-WP-Nonce', uab_data.nonce );
                 },
                 data: {
                     username: username,
