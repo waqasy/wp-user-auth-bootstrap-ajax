@@ -63,10 +63,10 @@ function uab_update_user(WP_REST_Request $request)
     //If user has changes then WordPress would logout the user so in that case we will send an AJAX request to log him in.
     if( $username !== $user->user_login )
     {
-        return ['success' => 'Profile has been updates successfully', 'username_changed' => true];
+        return ['success' => 'Profile has been updated successfully', 'username_changed' => true];
     }
 
-    return ['success' => 'Profile has been updates successfully', 'username_changed' => false];
+    return ['success' => 'Profile has been updated successfully', 'username_changed' => false];
 }
 
 
