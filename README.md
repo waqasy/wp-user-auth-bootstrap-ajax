@@ -11,6 +11,8 @@ This plugin assumes that your theme is using bootstrap and font-awesome. If not 
 2. [login-form]
 3. [send-reset-link-form]
 4. [password-reset-form] - Will redirect user to home page if he randomly accesses that page.
+5. [update-user-form] - Will redirect user to home page if he's not logged in.
+6. [update-password-form] - Will redirect user to home page if he's not logged in.
 
 #Security
 If you use this plugin you use it at your own risk, however I tried to use the best practices and I relied on WordPress functions whenever I could. Codebase is very small so you can go over the includes/api folder and take a look how I process all requests. It's mostly form validation and the rest is WordPress helper functions. I don't deal with SQL queries directly so there shouldn't be any problems. If you do find one, please let me know so I can fix it.
