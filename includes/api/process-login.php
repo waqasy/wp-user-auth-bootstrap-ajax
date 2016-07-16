@@ -26,7 +26,7 @@ function uab_login_user(WP_REST_Request $request)
     if ( is_wp_error( $user ) )
     {
         $error = "Invalid username and password combination";
-        return new WP_Error( 'login_error', $error );
+        return new WP_Error( 'login_error', $error, array( 'status' => 422 ) );
     }
 
     return "Welcome back $username!";

@@ -306,7 +306,7 @@
                 $(".update-success").text(data.success);
                 //If username has changed we need to login the user again, because WordPress just logged him out.
                 if(data.username_changed){
-                    login_user(user_id)
+                    login_user(user_id);
                 }
             }).fail(function(data){
                 //Incase user updates again after success

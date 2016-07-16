@@ -10,6 +10,7 @@ function uab_update_password(WP_REST_Request $request)
     $errors = [];
 
     $user = get_user_by( 'id', $user_id );
+
     //This should not be true since we are the one's passing the user's ID, but just incase we will check for problems.
     if( empty( $user ) )
     {
@@ -20,7 +21,7 @@ function uab_update_password(WP_REST_Request $request)
     if ( ! wp_check_password( $current_password, $user->user_pass, $user_id ) )
     {
         $reset_link_url = network_site_url( '/lostpassword' );
-        $errors['current_password'] = "Invalid passowrd. <a href='$reset_link_url'>Forgot passowrd?</a>";
+        $errors['current_password'] = "Invalid passowrd. <a href='$reset_link_url'>Forgot password?</a>";
         return new WP_Error( 'update_errors', $errors, array( 'status' => 422 ) );
     }
     if( $new_password !== $password_confirm )
@@ -31,6 +32,14 @@ function uab_update_password(WP_REST_Request $request)
     {
         $errors["new_password"] = "Password must be at least 6 characters";
     }
+
+    if( count( $errors ) > 0 )
+    {
+        return new WP_Error( 'update-password-errors', $errors, array( 'status' => 422 ) );
+    }
+
+    wp_set_password( $new_password, $user_id );
+    return "Password has been updated successfully";
 }
 
 

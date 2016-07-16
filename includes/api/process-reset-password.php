@@ -39,12 +39,12 @@ function uab_reset_password(WP_REST_Request $request)
 
     if( count( $errors ) > 0 )
     {
-        return new WP_Error( 'reset-password-error', $errors );
+        return new WP_Error( 'reset-password-errors', $errors, array( 'status' => 422 ) );
     }
 
     wp_set_password( $password, $user->id );
 
-    $login_url = $reset_link_url = network_site_url( '/login' );
+    $login_url = network_site_url( '/login' );
     return "Password changed successfully. <a href='$login_url'>Login here</a>.";
 
 }
