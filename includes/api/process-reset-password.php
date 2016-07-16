@@ -20,11 +20,11 @@ function uab_reset_password(WP_REST_Request $request)
 
     $errors = [];
     //order matters here. If email is empty or not valid in terms of syntax then it will show the proper error for that instead.
-    if( !( $email === $user->user_email ) )
+    if( $email !== $user->user_email )
     {
         $errors['email'] = "Entered email don't match to the reset link credentials, you may request another one <a href='$reset_link_url'>here</a>.";
     }
-    if ( !$email || !filter_var( $email, FILTER_VALIDATE_EMAIL ) )
+    if ( empty( $email ) || ! filter_var( $email, FILTER_VALIDATE_EMAIL ) )
     {
         $errors['email'] = "Valid Email is required";
     }

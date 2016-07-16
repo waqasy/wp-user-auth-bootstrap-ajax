@@ -24,7 +24,7 @@ function uab_register_user(WP_REST_Request $request)
     {
         $errors["email"] = "Email exists already";
     }
-    if ( !$email || !filter_var( $email, FILTER_VALIDATE_EMAIL ) )
+    if ( empty( $email ) || ! filter_var( $email, FILTER_VALIDATE_EMAIL ) )
     {
         $errors["email"] = "Valid Email is required";
     }
@@ -42,13 +42,13 @@ function uab_register_user(WP_REST_Request $request)
         return new WP_Error( 'registration_errors', $errors, array( 'status' => 422 ) );
     }
 
-    $userdata = array(
+    $user_data = array(
         'user_login' =>  $username,
         'user_email' =>  $email,
         'user_pass'  =>  $password
     );
 
-    $user_id = wp_insert_user( $userdata );
+    $user_id = wp_insert_user( $user_data );
     //IF we get an error here that means we have a problem in our app.
     if( is_wp_error( $user_id ) )
     {

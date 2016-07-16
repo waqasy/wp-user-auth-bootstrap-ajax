@@ -4,7 +4,7 @@ function uab_send_reset_link(WP_REST_Request $request)
 {
     $email = trim( $request['email'] );
 
-    if ( empty( $email ) || !filter_var( $email, FILTER_VALIDATE_EMAIL ) )
+    if ( empty( $email ) || ! filter_var( $email, FILTER_VALIDATE_EMAIL ) )
     {
         $error = "Valid Email is required.";
         return new WP_Error( 'reset_link_error', $error );

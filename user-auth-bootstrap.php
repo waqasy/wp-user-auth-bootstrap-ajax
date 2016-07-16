@@ -50,12 +50,15 @@ include(plugin_dir_path( __FILE__ ) . '/includes/forms/login.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/forms/send-reset-link.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/forms/reset-password.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/forms/update-user.php');
+include(plugin_dir_path( __FILE__ ) . '/includes/forms/update-password.php');
 
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-register.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-login.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-send-reset-link.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-reset-password.php');
 include(plugin_dir_path( __FILE__ ) . '/includes/api/process-update-user.php');
+include(plugin_dir_path( __FILE__ ) . '/includes/api/process-update-password.php');
+
 
 
 add_shortcode('register-form', 'uab_register_form');
@@ -63,6 +66,8 @@ add_shortcode('login-form', 'uab_login_form');
 add_shortcode('send-reset-link-form', 'uab_send_reset_link_form');
 add_shortcode('password-reset-form', 'uab_password_reset_form');
 add_shortcode('update-user-form', 'uab_update_user_form');
+add_shortcode('update-password-form', 'uab_update_password_form');
+
 
 
 function coverager_register_endpoints()
@@ -90,6 +95,11 @@ function coverager_register_endpoints()
     register_rest_route('update-user/v1', '/user/', array(
         'methods' => 'POST',
         'callback' => 'uab_update_user'
+    ));
+
+    register_rest_route('update-password/v1', '/user/', array(
+        'methods' => 'POST',
+        'callback' => 'uab_update_password'
     ));
 }
 

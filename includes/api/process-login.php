@@ -2,6 +2,14 @@
 
 function uab_login_user(WP_REST_Request $request)
 {
+    //By default WordPress logs out user that updated their username. This will check is that's is the case and just login the user.
+    if( $request['after_update'] )
+    {
+        $user_id = (int) $request['id'];
+        wp_set_auth_cookie( $user_id, false );
+        return true;
+    }
+
     $username = sanitize_text_field( trim( $request['username'] ) );
     $password = trim( $request['password'] );
     $remember = $request['remember'];
