@@ -46,7 +46,7 @@ function uab_login_form()
                             <button type="submit" class="btn btn-primary login">
                                 <i class="fa fa-btn fa-sign-in"></i> Login
                             </button>
-                            <a class="btn btn-link" href="/coverager/lostpassword">Forgot Your Password?</a>
+                            <a class="btn btn-link" href="<?php echo network_site_url( '/lostpassword' ) ?>">Forgot Your Password?</a>
                         </div>
                     </div>
 
