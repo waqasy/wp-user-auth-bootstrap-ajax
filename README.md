@@ -1,3 +1,6 @@
+# ISSUES:
+It seems that WordPress is not well suited for AJAX auth. If user logged in and didn't refresh his page he won't be able to send more AJAX requests due to invalid NONCE. This is a big issue when it comes to update profile form. I tried to refresh the NONCE after user logged in, but it didn't solve the problem. Currently the only solution is to run location.reload via jQuery to load the page after user logged in.
+
 # wp-user-auth-bootstrap
 Plugin for allowing users to register into your WordPress site via AJAX using the rest-api. Still in the work.
 

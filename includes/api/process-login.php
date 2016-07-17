@@ -7,7 +7,7 @@ function uab_login_user(WP_REST_Request $request)
     {
         $user_id = (int) $request['id'];
         wp_set_auth_cookie( $user_id, false );
-        return true;
+        return wp_create_nonce( 'wp_rest' );
     }
 
     $username = sanitize_text_field( trim( $request['username'] ) );

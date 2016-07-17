@@ -4,7 +4,7 @@
             event.preventDefault();
             //array of fields so we can easily hide errors in all of them
             var fields = ["username", "email", "current_password", "new_password", "password_confirm"];
-
+            
             var user_id          = uab_data.user_id;
             var username         = $('#username-update').val();
             var email            = $('#email-update').val();
@@ -39,6 +39,8 @@
                 //If username has changed we need to login the user again, because WordPress just logged him out.
                 if(data.username_changed){
                     login_user(user_id);
+                } else {
+                    $( "#wpadminbar" ).load( "../coverager/lostpassword #wpadminbar" );
                 }
             }).fail(function(data){
                 //Incase user updates again after success
@@ -79,6 +81,8 @@
         function login_user(id) {
             $.post(uab_data.site_url + 'wp-json/login-user/v1/user', { id: id, after_update: true })
                 .done(function( data ) {
+                    console.log(data);
+                    location.reload();
                     console.log("User is logged in again");
                 });
         }

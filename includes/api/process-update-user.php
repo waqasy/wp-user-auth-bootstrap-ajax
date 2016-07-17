@@ -63,6 +63,9 @@ function uab_update_user(WP_REST_Request $request)
     //If user has changes then WordPress would logout the user so in that case we will send an AJAX request to log him in.
     if( $username !== $user->user_login )
     {
+        wp_cache_delete($user_id, 'users');
+        wp_cache_delete($user->user_login, 'userlogins'); // This might be an issue for how you are doing it. Presumably you'd need to run this for the ORIGINAL user login name, not the new one.
+        wp_logout();
         return ['success' => 'Profile has been updated successfully', 'username_changed' => true];
     }
 
